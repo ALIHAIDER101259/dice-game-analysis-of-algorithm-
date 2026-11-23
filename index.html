@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#100b20">
+    <title>Royal Dice | Premium Edition</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="navbar">
+    <a class="brand" href="#home">
+        <span class="brand-icon">♛</span>
+        <span>ROYAL<span class="brand-accent">DICE</span></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#play" class="nav-link">Play</a>
+        <a href="#achievements" class="nav-link">Achievements</a>
+        <a href="#history" class="nav-link">History</a>
+        <a href="#algorithm" class="nav-link">Rules</a>
+    </nav>
+
+    <div class="nav-actions">
+        <button class="icon-btn" id="soundBtn" title="Toggle sound">🔊</button>
+        <button class="icon-btn" id="themeBtn" title="Change theme">🎨</button>
+        <button class="icon-btn" id="helpBtn" title="Game rules">❔</button>
+        <div class="nav-avatar">👑</div>
+        <button class="icon-btn mobile-menu-btn" id="menuBtn" title="Menu">☰</button>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-copy">
+            <div class="eyebrow"><span></span> THE ROYAL GAMING EXPERIENCE</div>
+            <h1>LET THE <span>GOOD TIMES</span><br>ROLL.</h1>
+            <p>Trust your instincts, roll the dice and build your royal legacy.</p>
+            <div class="hero-tags">
+                <span>🎲 Two Dice</span>
+                <span>🏆 Achievements</span>
+                <span>💎 Virtual Rewards</span>
+                <span>⚡ Auto Play</span>
+            </div>
+        </div>
+
+        <div class="hero-art">
+            <div class="hero-orbit orbit-one"></div>
+            <div class="hero-orbit orbit-two"></div>
+            <div class="hero-die die-back">⚄</div>
+            <div class="hero-die die-front">⚂</div>
+            <div class="hero-spark spark-one">✦</div>
+            <div class="hero-spark spark-two">✧</div>
+            <div class="hero-spark spark-three">✦</div>
+        </div>
+    </section>
+
+    <!-- DASHBOARD -->
+    <section class="dashboard">
+        <article class="stat-card balance-card">
+            <div class="stat-top">
+                <span class="stat-icon">🪙</span>
+                <span class="stat-label">YOUR BALANCE</span>
+            </div>
+            <h2 id="balance">10,000</h2>
+            <span class="stat-caption">Available virtual coins</span>
+        </article>
+
+        <article class="stat-card">
+            <div class="stat-top">
+                <span class="stat-icon">🏆</span>
+                <span class="stat-label">TOTAL WINS</span>
+            </div>
+            <h2 id="wins">0</h2>
+            <span class="stat-caption">Winning rounds</span>
+        </article>
+
+        <article class="stat-card">
+            <div class="stat-top">
+                <span class="stat-icon">🔥</span>
+                <span class="stat-label">WIN STREAK</span>
+            </div>
+            <h2 id="streak">0</h2>
+            <span class="stat-caption">Consecutive victories</span>
+        </article>
+
+        <article class="stat-card">
+            <div class="stat-top">
+                <span class="stat-icon">⭐</span>
+                <span class="stat-label">BEST STREAK</span>
+            </div>
+            <h2 id="best">0</h2>
+            <span class="stat-caption">Personal record</span>
+        </article>
+
+        <article class="stat-card">
+            <div class="stat-top">
+                <span class="stat-icon">📊</span>
+                <span class="stat-label">WIN RATE</span>
+            </div>
+            <h2 id="winRate">0%</h2>
+            <span class="stat-caption">Winning percentage</span>
+        </article>
+    </section>
+
+    <!-- MAIN GAME -->
+    <section class="main-grid">
+
+        <section class="game-panel" id="play">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">THE MAIN EVENT</span>
+                    <h2>🎲 Dice Arena</h2>
+                </div>
+                <span class="round-pill" id="round">ROUND #0</span>
+            </div>
+
+            <div class="jackpot-box">
+                <div class="jackpot-content">
+                    <span class="jackpot-icon">💎</span>
+                    <div>
+                        <small>ROYAL PROGRESSIVE JACKPOT</small>
+                        <h2 id="jackpot">5,000 <span>COINS</span></h2>
+                    </div>
+                </div>
+                <div class="jackpot-badge">LUCKY 7 BONUS</div>
+            </div>
+
+            <div class="dice-area">
+                <div class="dice-glow"></div>
+                <div class="dice" id="dice1">⚀</div>
+                <div class="dice" id="dice2">⚀</div>
+                <div class="dice-caption">ROLL BOTH DICE</div>
+            </div>
+
+            <div class="total-box">
+                <span>TOTAL ROLL</span>
+                <strong id="total">--</strong>
+                <span class="total-hint">Your lucky number</span>
+            </div>
+
+            <div id="result" class="result">
+                <span class="result-dot"></span>
+                Choose your mode and roll the dice!
+            </div>
+
+            <!-- GAME MODE -->
+            <div class="prediction">
+                <div class="field-heading">
+                    <label>CHOOSE YOUR GAME MODE</label>
+                    <span>SELECT ONE</span>
+                </div>
+
+                <div class="mode-grid">
+                    <button class="mode active" data-mode="high">
+                        <span class="mode-emoji">⬆️</span>
+                        <strong>HIGH</strong>
+                        <small>8 – 12</small>
+                    </button>
+
+                    <button class="mode" data-mode="low">
+                        <span class="mode-emoji">⬇️</span>
+                        <strong>LOW</strong>
+                        <small>2 – 6</small>
+                    </button>
+
+                    <button class="mode" data-mode="seven">
+                        <span class="mode-emoji">💎</span>
+                        <strong>LUCKY 7</strong>
+                        <small>Exactly 7</small>
+                    </button>
+
+                    <button class="mode" data-mode="doubles">
+                        <span class="mode-emoji">🎲</span>
+                        <strong>DOUBLES</strong>
+                        <small>Same Number</small>
+                    </button>
+                </div>
+            </div>
+
+            <!-- LUCKY NUMBER -->
+            <div class="lucky-number-area">
+                <div class="field-heading">
+                    <label>LUCKY NUMBER (OPTIONAL)</label>
+                    <span>10× PAYOUT</span>
+                </div>
+                <div class="lucky-input">
+                    <input type="number" id="luckyNumber" min="2" max="12" placeholder="2-12" inputmode="numeric">
+                    <span>Guess exact total</span>
+                </div>
+            </div>
+
+            <!-- DICE SKINS -->
+            <div class="dice-skin-area">
+                <div class="field-heading">
+                    <label>DICE SKIN</label>
+                    <span>CHOOSE STYLE</span>
+                </div>
+                <div class="skin-grid">
+                    <button class="skin-btn active" data-skin="classic">Classic</button>
+                    <button class="skin-btn" data-skin="golden">Golden</button>
+                    <button class="skin-btn" data-skin="neon">Neon</button>
+                </div>
+            </div>
+
+            <!-- BETTING -->
+            <div class="bet-area">
+                <div class="field-heading">
+                    <label for="bet">YOUR BET AMOUNT</label>
+                    <span>VIRTUAL COINS</span>
+                </div>
+
+                <div class="bet-input">
+                    <span>🪙</span>
+                    <input type="number" id="bet" value="100" min="1" step="1" inputmode="numeric">
+                    <span class="bet-unit">COINS</span>
+                </div>
+
+                <div class="quick-bets">
+                    <button data-bet="100">100</button>
+                    <button data-bet="500">500</button>
+                    <button data-bet="1000">1K</button>
+                    <button id="halfBtn">½ HALF</button>
+                    <button id="maxBtn">MAX</button>
+                </div>
+            </div>
+
+            <button id="rollBtn" class="roll-button">
+                <span>🎲</span> ROLL THE DICE
+            </button>
+
+            <button id="doubleBtn" class="double-button" style="display:none;">
+                🔥 DOUBLE OR NOTHING
+            </button>
+
+            <div class="game-footer">
+                <span>🎯 HIGH / LOW <strong>2X</strong></span>
+                <span>💎 LUCKY 7 <strong>5X</strong></span>
+                <span>🎲 DOUBLES <strong>4X</strong></span>
+                <span>🎯 LUCKY # <strong>10X</strong></span>
+            </div>
+
+            <p class="virtual-note">
+                Entertainment only · Virtual coins · No real-money betting
+            </p>
+
+        </section>
+
+        <!-- SIDEBAR -->
+        <aside class="side-panel">
+
+            <!-- PLAYER PROFILE -->
+            <section class="side-card profile-card">
+                <div class="side-heading">
+                    <h3>PLAYER PROFILE</h3>
+                    <span class="online-dot"></span>
+                </div>
+
+                <div class="profile-avatar">👑</div>
+                <h3 class="player-name" id="playerName" contenteditable="true" title="Click to edit name">ROYAL PLAYER</h3>
+                <span class="level" id="level">LEVEL 01 · BEGINNER</span>
+
+                <div class="progress-info">
+                    <span>EXPERIENCE POINTS</span>
+                    <strong id="xpText">0 / 100</strong>
+                </div>
+                <div class="progress-bar">
+                    <div id="xpBar"></div>
+                </div>
+                <p class="xp-caption">Win games to earn more XP and level up.</p>
+            </section>
+
+            <!-- QUICK STATS -->
+            <section class="side-card">
+                <div class="side-heading">
+                    <h3>📈 QUICK STATS</h3>
+                </div>
+                <div class="quick-stats">
+                    <div>
+                        <span>Total Rounds</span>
+                        <strong id="totalRounds">0</strong>
+                    </div>
+                    <div>
+                        <span>Net Profit</span>
+                        <strong id="netProfit">0</strong>
+                    </div>
+                    <div>
+                        <span>Biggest Win</span>
+                        <strong id="biggestWin">0</strong>
+                    </div>
+                    <div>
+                        <span>Streak Bonus</span>
+                        <strong id="streakBonus">0%</strong>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DAILY REWARD -->
+            <section class="side-card daily-card">
+                <div class="daily-art">🎁</div>
+                <div class="daily-copy">
+                    <span class="section-kicker">A LITTLE GIFT FOR YOU</span>
+                    <h3>Daily Reward</h3>
+                    <p>Come back every day for 500 bonus coins.</p>
+                    <small id="dailyStatus">Your daily reward is waiting!</small>
+                </div>
+                <button id="dailyRewardBtn" class="daily-button">CLAIM 500 COINS</button>
+            </section>
+
+            <!-- ACHIEVEMENTS -->
+            <section class="side-card" id="achievements">
+                <div class="side-heading">
+                    <h3>🏆 ACHIEVEMENTS</h3>
+                    <span class="mini-label">MILESTONES</span>
+                </div>
+
+                <div class="achievements">
+                    <div class="achievement" id="achievement1">
+                        <span class="achievement-icon">🥉</span>
+                        <div>
+                            <strong>First Victory</strong>
+                            <small>Win your first round</small>
+                        </div>
+                        <span class="achievement-check">✓</span>
+                    </div>
+
+                    <div class="achievement" id="achievement2">
+                        <span class="achievement-icon">🔥</span>
+                        <div>
+                            <strong>Hot Streak</strong>
+                            <small>Win 3 rounds in a row</small>
+                        </div>
+                        <span class="achievement-check">✓</span>
+                    </div>
+
+                    <div class="achievement" id="achievement3">
+                        <span class="achievement-icon">👑</span>
+                        <div>
+                            <strong>Dice Legend</strong>
+                            <small>Reach 10 victories</small>
+                        </div>
+                        <span class="achievement-check">✓</span>
+                    </div>
+
+                    <div class="achievement" id="achievement4">
+                        <span class="achievement-icon">💰</span>
+                        <div>
+                            <strong>Coin Collector</strong>
+                            <small>Reach 15,000 coins</small>
+                        </div>
+                        <span class="achievement-check">✓</span>
+                    </div>
+
+                    <div class="achievement" id="achievement5">
+                        <span class="achievement-icon">🎯</span>
+                        <div>
+                            <strong>Perfect Ten</strong>
+                            <small>Play 50 rounds</small>
+                        </div>
+                        <span class="achievement-check">✓</span>
+                    </div>
+
+                    <div class="achievement" id="achievement6">
+                        <span class="achievement-icon">🎲</span>
+                        <div>
+                            <strong>Double Trouble</strong>
+                            <small>Win with Doubles mode</small>
+                        </div>
+                        <span class="achievement-check">✓</span>
+                    </div>
+
+                    <div class="achievement" id="achievement7">
+                        <span class="achievement-icon">💥</span>
+                        <div>
+                            <strong>Streak Master</strong>
+                            <small>Reach 7 win streak</small>
+                        </div>
+                        <span class="achievement-check">✓</span>
+                    </div>
+
+                    <div class="achievement" id="achievement8">
+                        <span class="achievement-icon">🤑</span>
+                        <div>
+                            <strong>Big Winner</strong>
+                            <small>Win 5,000+ in one round</small>
+                        </div>
+                        <span class="achievement-check">✓</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HISTORY -->
+            <section class="side-card" id="history">
+                <div class="side-heading">
+                    <h3>📜 GAME HISTORY</h3>
+                    <button id="clearHistory" class="text-button">CLEAR</button>
+                </div>
+                <div id="history" class="history">
+                    <p class="empty">Your game results will appear here.</p>
+                </div>
+            </section>
+
+            <!-- AUTO PLAY -->
+            <section class="side-card auto-card">
+                <div class="side-heading">
+                    <h3>⚡ AUTO PLAY</h3>
+                    <span class="mini-label">10 ROUNDS</span>
+                </div>
+                <p>Let the game play up to 10 rounds automatically.</p>
+                <button id="autoRollBtn" class="auto-button">▶ START AUTO ROLL</button>
+                <small id="autoStatus">Auto Roll: OFF</small>
+            </section>
+
+            <!-- SETTINGS -->
+            <section class="side-card control-card">
+                <h3>GAME SETTINGS</h3>
+                <button id="restartBtn" class="control-btn">↻ RESTART GAME</button>
+                <button id="resetBtn" class="control-btn danger">🗑 RESET ALL DATA</button>
+            </section>
+
+        </aside>
+    </section>
+
+    <!-- BOTTOM CARDS -->
+    <section class="bottom-cards">
+        <article class="info-card">
+            <span>🎲</span>
+            <div>
+                <h3>RANDOM DICE ROLLS</h3>
+                <p>Every roll uses JavaScript's random number generator.</p>
+            </div>
+        </article>
+        <article class="info-card">
+            <span>✨</span>
+            <div>
+                <h3>SMOOTH GAMEPLAY</h3>
+                <p>Enjoy animated dice, responsive controls and instant results.</p>
+            </div>
+        </article>
+        <article class="info-card">
+            <span>👑</span>
+            <div>
+                <h3>BUILD YOUR LEGACY</h3>
+                <p>Unlock achievements, grow your streak and reach new levels.</p>
+            </div>
+        </article>
+    </section>
+
+    <!-- ALGORITHM SECTION -->
+    <section class="algorithm-section" id="algorithm">
+        <div class="algorithm-table-wrapper">
+            <table class="algorithm-table">
+                <thead>
+                    <tr>
+                        <th>Step</th>
+                        <th>Algorithm Logic</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>01</td><td>START</td><td>Start the Royal Dice game.</td></tr>
+                    <tr><td>02</td><td>balance = 10000</td><td>Initialize player balance with 10,000 coins.</td></tr>
+                    <tr><td>03</td><td>INPUT selected_mode, bet_amount</td><td>Player selects HIGH, LOW, LUCKY 7 or DOUBLES and enters a bet.</td></tr>
+                    <tr><td>04</td><td>IF bet_amount <= 0 OR bet_amount > balance</td><td>Validate the bet amount.</td></tr>
+                    <tr><td>05</td><td>balance = balance - bet_amount</td><td>Deduct the bet from the player's balance.</td></tr>
+                    <tr><td>06</td><td>dice1 = RANDOM(1, 6)<br>dice2 = RANDOM(1, 6)</td><td>Generate two random dice values between 1 and 6.</td></tr>
+                    <tr><td>07</td><td>total = dice1 + dice2</td><td>Calculate the sum of both dice.</td></tr>
+                    <tr><td>08</td><td>IF HIGH AND total >= 8</td><td>Player wins with a total between 8 and 12.</td></tr>
+                    <tr><td>09</td><td>ELSE IF LOW AND total <= 6</td><td>Player wins with a total between 2 and 6.</td></tr>
+                    <tr><td>10</td><td>ELSE IF LUCKY 7 AND total = 7</td><td>Player wins the Lucky 7 jackpot.</td></tr>
+                    <tr><td>11</td><td>ELSE IF DOUBLES AND dice1 = dice2</td><td>Player wins when both dice show the same number.</td></tr>
+                    <tr><td>12</td><td>balance += bet_amount * multiplier</td><td>Apply 2×, 4× or 5× payout based on mode.</td></tr>
+                    <tr><td>13</td><td>ELSE: losses++</td><td>Record a loss if the selected condition is not satisfied.</td></tr>
+                    <tr><td>14</td><td>UPDATE balance, statistics, history</td><td>Update the game dashboard and result history.</td></tr>
+                    <tr><td>15</td><td>END WHILE → STOP</td><td>Continue playing until the player stops or balance reaches zero.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-brand">♛ ROYAL<span>DICE</span></div>
+        <p>ROLL WITH STYLE. PLAY FOR FUN.</p>
+        <small>© 2026 ROYAL DICE · VIRTUAL COINS ONLY</small>
+    </footer>
+
+</main>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="confetti" class="confetti-container"></div>
+
+<!-- RULES MODAL -->
+<div id="rulesModal" class="modal">
+    <div class="modal-content">
+        <button id="closeModal" class="close-modal">✕</button>
+        <span class="modal-crown">👑</span>
+        <h2>ROYAL DICE RULES</h2>
+
+        <div class="rule-item">
+            <strong>⬆️ HIGH MODE</strong>
+            <p>Win when the dice total is between 8 and 12.</p>
+            <span>2X RETURN</span>
+        </div>
+        <div class="rule-item">
+            <strong>⬇️ LOW MODE</strong>
+            <p>Win when the dice total is between 2 and 6.</p>
+            <span>2X RETURN</span>
+        </div>
+        <div class="rule-item">
+            <strong>💎 LUCKY 7</strong>
+            <p>Win when the dice total is exactly 7.</p>
+            <span>5X RETURN</span>
+        </div>
+        <div class="rule-item">
+            <strong>🎲 DOUBLES</strong>
+            <p>Win when both dice show the same number.</p>
+            <span>4X RETURN</span>
+        </div>
+        <div class="rule-item">
+            <strong>🎯 LUCKY NUMBER</strong>
+            <p>Optional side bet – guess the exact total (2-12).</p>
+            <span>10X RETURN</span>
+        </div>
+
+        <p class="modal-note">
+            All coins are virtual and have no real-world monetary value.
+        </p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
