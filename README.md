@@ -1,56 +1,38 @@
-# 🎲 Royal Dice – Randomized Dice Game
+## 🎲 Royal Dice Game
 
-## 📌 About the Project
-Royal Dice is a C++ console-based dice game developed as an Analysis of Algorithms course project.
+A modern and interactive Dice Game developed using **C++, HTML, CSS, and JavaScript**. The project combines algorithmic logic with an attractive, responsive web-based user interface.
 
-The game uses random number generation to simulate dice rolls. Players can choose different game modes, place virtual bets, and track their game statistics.
+### 🚀 Technologies Used
 
-## ✨ Features
-- 🎲 Random Dice Rolling
-- 👑 Normal Dice Mode
-- 📈 High / Low Mode
-- 🍀 Lucky Seven Mode
-- 💰 Virtual Betting System
-- 📊 Player Statistics
-- 💾 Save and Load Player Data
-- ✅ Basic Input Validation
+- **C++** – Core game logic and randomized dice algorithm.
+- **HTML5** – Structure of the game interface.
+- **CSS3** – Styling, animations, responsive layout, and royal theme.
+- **JavaScript** – Interactive functionality, game controls, notifications, and DOM manipulation.
 
-## 🛠️ Technologies Used
-- C++
-- Random Number Generation
-- File Handling
-- Basic Algorithm Design
+### ✨ Features
 
-## 🧠 Algorithm Used
-The project uses a randomized algorithm to generate dice values between 1 and 6.
+- Randomized Dice Rolling
+- Interactive Game Interface
+- Royal Casino-Inspired Design
+- Light and Dark Theme
+- Dice Rolling Animations
+- Notification System
+- Responsive User Interface
+- Game Results and Score Display
 
-```cpp
-int rollDice() {
-    return rand() % 6 + 1;
-}
-```
+### 🧠 Algorithm Used
 
-## ⏱️ Algorithm Complexity
-- Single Dice Roll: O(1)
-- Two Dice Rolls: O(1)
-- N Dice Rolls: O(n)
-- Space Complexity: O(1)
+The project uses a **Randomized Algorithm** to generate unpredictable dice values. C++ handles the core randomization logic, while JavaScript manages interactive web functionality.
 
-## 🚀 How to Run
+### 🎯 Project Objective
 
-1. Download or clone this repository.
-2. Open the project in VS Code or any C++ IDE.
-3. Compile the `main.cpp` file.
-4. Run the program.
+The objective of this project is to demonstrate algorithmic concepts through a practical game while combining C++ programming with modern web technologies.
 
-## 👨‍💻 Project Members
-- Ali Haider
-- Muhammad Shayaan
+### 👨‍💻 Developer
 
-## 📚 Course Information
-- **Course:** Analysis of Algorithms
-- **Semester:** Spring 2026
-- **Instructor:** Mr. Muhammad Usman Sharif
+**Ali Haider**
+**Muhammad shayaan**
 
-## 🎯 Project Purpose
-The main purpose of this project is to understand randomized algorithms, implement them in C++, and analyze their time and space complexity.
+Analysis of Algorithms Project
+
+**Technologies:** C++ | HTML | CSS | JavaScript
